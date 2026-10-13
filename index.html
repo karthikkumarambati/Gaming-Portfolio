@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+    <title>
+      Karthik Ambati | Neon City Rider
+    </title>
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body class="off">
+    <div class="hud">
+      <div>
+        <div class="lvl" id="lvl">
+          LVL 1
+        </div>
+        <div class="xp">
+          <span style="font-size:11px" id="xpt">0 / 100 XP</span>
+          <div>
+            <i id="xpb"></i>
+          </div>
+        </div>
+      </div>
+      <div class="btns">
+        <button id="sndB" title="Sound">
+          🔊
+        </button>
+        <button id="pauseB" title="Pause (P)">
+          ⏸
+        </button>
+        <button id="restartB" title="Restart (R)">
+          ↻
+        </button>
+      </div>
+      <div class="obj" id="obj">
+        Follow the route map to the first shop
+      </div>
+    </div>
+    <div class="speed">
+      <span id="sp">0</span> <small>KM/H</small>
+    </div>
+    <div class="rmap" id="rmap">
+      <div class="rhead">
+        <span class="grip">⠿</span><b>ROUTE MAP</b>
+        <button id="mlist" aria-expanded="false" aria-controls="slist">
+          STOPS ▾
+        </button>
+        <button id="mmin" title="Minimize map">
+          –
+        </button>
+      </div>
+      <canvas id="mapc" width="300" height="300">
+      </canvas>
+      <div class="slist" id="slist" hidden>
+      </div>
+    </div>
+    <div class="prompt" id="prompt">
+      Press E · Explore stop
+    </div>
+    <div class="toast" id="toast">
+    </div>
+    <button class="eng" id="engB">
+      <span class="k">⏻</span><b id="engT">START ENGINE</b>
+    </button>
+    <button class="park" id="parkB">
+      <span class="k">🅿</span><b>PARK LIGHTS</b>
+    </button>
+    <div class="steer">
+      <button id="mL" aria-label="Steer left">
+        ◀
+      </button>
+      <button id="mR" aria-label="Steer right">
+        ▶
+      </button>
+    </div>
+    <div class="gearbox" id="gearbox">
+      <button id="gF" class="on">
+        D<small>FORWARD</small>
+      </button>
+      <button id="gR">
+        R<small>REVERSE</small>
+      </button>
+      <button id="hornB" aria-label="Horn">
+        📯<small>HORN</small>
+      </button>
+    </div>
+    <div class="pedals">
+      <button class="ped brk" id="brkB" aria-label="Brake pedal">
+        <i></i><span>BRAKE</span>
+      </button>
+      <button class="ped gas" id="gasB" aria-label="Accelerator pedal">
+        <i></i><span>GAS</span>
+      </button>
+    </div>
+    <div class="ov" id="start">
+      <div>
+        <div class="pf" id="pf">
+        </div>
+        <div style="letter-spacing:4px;color:#00e5ff;font-size:13px">
+          KARTHIK AMBATI · SENIOR WORDPRESS DEVELOPER
+        </div>
+        <h1>
+          NEON CITY<br>RIDER
+        </h1>
+        <p style="max-width:520px;margin:10px auto">
+          Ride the night city. Race the closed city circuit, take its left and right turns, and stop at the glowing street shops. Each shop holds a part of my portfolio. Collect orbs for XP.
+        </p>
+        <p style="opacity:.8;font-size:14px">
+          <b>W/↑</b> accelerate · <b>S/↓</b> brake · <b>A/D</b> steer · <b>E</b> explore shop · <b>P</b> pause · <b>I</b> engine on/off · <b>H</b> parking lights · <b>SPACE</b> horn · <b>R</b> restart · <b>G</b> gear D/R
+        </p>
+        <p style="opacity:.7;font-size:13px">
+          📱 On mobile: ◀ ▶ to steer, GAS and BRAKE pedals, D / R gear buttons and 📯 horn. Reverse plays music.
+        </p>
+        <p style="opacity:.7;font-size:13px">
+          🛣 Two-way traffic: keep LEFT, obey the signals (red light = −15 XP) and avoid vehicles.
+        </p>
+        <button class="btn" id="go">
+          ▶ ENTER THE CITY
+        </button>
+      </div>
+    </div>
+    <div class="ov hid" id="pov">
+      <div>
+        <h1>
+          PAUSED
+        </h1>
+        <button class="btn" id="resB">
+          ▶ RESUME
+        </button>
+        <button class="btn" id="rsB" style="background:#fff">
+          ↻ RESTART
+        </button>
+      </div>
+    </div>
+    <div class="crash hid" id="crash">
+      💥 CRASH!<small>You hit a building · restarting the game…</small>
+    </div>
+    <div class="modal hid" id="modal">
+      <button class="mx" id="mx" aria-label="Close">
+        ✕
+      </button>
+      <div class="panel">
+        <div class="phd">
+          <small id="mk">STOP UNLOCKED</small>
+          <h2 id="mt">
+          </h2>
+        </div>
+        <div id="mb">
+        </div>
+        <button class="btn" id="mc" style="padding:10px 24px;font-size:15px">
+          CONTINUE RIDE (ESC)
+        </button>
+      </div>
+    </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="js/utils.js"></script>
+<script src="js/images.js"></script>
+<script src="js/data.js"></script>
+<script src="js/audio.js"></script>
+<script src="js/world.js"></script>
+<script src="js/traffic.js"></script>
+<script src="js/bike.js"></script>
+<script src="js/game.js"></script>
+</body>
+</html>
